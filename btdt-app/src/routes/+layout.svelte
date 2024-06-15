@@ -23,15 +23,11 @@
 				</div>
 				<ul
 					class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-				>
-					<li><a href="/">Heute</a></li>
-					<li><a href="/radio-shows/deutschlandfunk">Deutschlandfunk Sendungen</a></li>
-					<li><a href="/radio-shows/thechangelog">The Changelog Sendungen</a></li>
-				</ul>
+				/>
 			</div>
 		</div>
 		<div class="navbar-center">
-			<a class="btn btn-ghost text-xl" href="/">Personal News Feed</a>
+			<a class="btn btn-ghost text-xl" href="/">Bean there done that</a>
 		</div>
 		<div class="navbar-end">
 			<button class="btn btn-ghost btn-circle">
