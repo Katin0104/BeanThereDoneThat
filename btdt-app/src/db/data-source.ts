@@ -5,7 +5,7 @@ import { CoffeeBeans } from "./entities/coffee-beans";
 export class BtdtDataSource {
     private static _dataSourceInstance: DataSource;
     public get dataSourceInstance() {
-        return BtdtDataSource._dataSourceInstance ? BtdtDataSource._dataSourceInstance : new DataSource({
+        BtdtDataSource._dataSourceInstance = BtdtDataSource._dataSourceInstance ? BtdtDataSource._dataSourceInstance : new DataSource({
             type: "postgres",
             host: process.env.POSTGRES_HOST ?? 'localhost',
             port: (process.env.POSTGRES_PORT ?? 5434) as number,
@@ -16,10 +16,13 @@ export class BtdtDataSource {
             logging: false,
             entities: [RoastingHouse, CoffeeBeans]
         })
+
+        return BtdtDataSource._dataSourceInstance;
     }
+
     public async initBtdtDataSource() {
         if (!BtdtDataSource._dataSourceInstance) {
-            return this.dataSourceInstance.initialize();
+            return await this.dataSourceInstance.initialize();
         }
     }
 }

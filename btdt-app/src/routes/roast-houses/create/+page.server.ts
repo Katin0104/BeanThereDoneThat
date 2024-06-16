@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
-import { RoastingHouse } from '../../../db/entities/roasting-house.js';
-import { BtdtDataSource } from '../../../db/data-source.js';
+import { RoastingHouse } from '../../../db/entities/roasting-house';
+import { BtdtDataSource } from '../../../db/data-source';
 
 export const actions = {
     default: async (event) => {
