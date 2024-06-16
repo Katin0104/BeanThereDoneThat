@@ -5,5 +5,14 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
+	},
+	build: {
+		minify: false
+	},
+	esbuild: {
+		keepNames: true
+	},
+	ssr: {
+		external: ['reflect-metadata'],
 	}
 });

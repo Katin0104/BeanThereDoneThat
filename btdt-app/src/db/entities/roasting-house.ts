@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
-@Entity()
+@Entity({ name: 'roasting_house' })
 export class RoastingHouse {
     @PrimaryGeneratedColumn()
     id!: number
@@ -9,12 +9,6 @@ export class RoastingHouse {
         type: "text"
     })
     name!: string
-
-    @Column({
-        nullable: true,
-        type: "text"
-    })
-    description?: string
 
     @Column({
         nullable: true,
@@ -46,10 +40,9 @@ export class RoastingHouse {
     })
     shopUrl?: string
 
-    constructor(values: { name: string, description?: string, address?: string, tel?: string, email?: string, website?: string, shopUrl?: string }) {
+    constructor(values: { name: string, address?: string, tel?: string, email?: string, website?: string, shopUrl?: string }) {
         if (values) {
             this.name = values.name;
-            this.description = values.description;
             this.address = values.address;
             this.tel = values.tel;
             this.email = values.email;

@@ -12,7 +12,7 @@ export enum RoastType {
 }
 
 
-@Entity()
+@Entity({ name: 'coffee_beans' })
 export class CoffeeBeans {
     @PrimaryGeneratedColumn()
     id!: number

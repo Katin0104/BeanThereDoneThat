@@ -12,7 +12,7 @@
   }
   ```
 -->
-<form>
+<form method="POST">
 	<div class="space-y-12">
 		<div class="border-b border-gray-900/10 pb-12">
 			<h2 class="text-base font-semibold leading-7 text-gray-900">Füge eine neue Rösterei hinzu</h2>
@@ -59,7 +59,7 @@
 						<input
 							id="tel"
 							name="tel"
-							type="tel"
+							type="text"
 							autocomplete="tel"
 							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 						/>
@@ -74,7 +74,7 @@
 						<input
 							id="address"
 							name="address"
-							type="address"
+							type="text"
 							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 						/>
 					</div>
@@ -87,7 +87,7 @@
 						<input
 							id="website"
 							name="website"
-							type="website"
+							type="text"
 							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 						/>
 					</div>
@@ -100,7 +100,7 @@
 						<input
 							id="shopUrl"
 							name="shopUrl"
-							type="shopUrl"
+							type="text"
 							class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 						/>
 					</div>
