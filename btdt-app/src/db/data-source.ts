@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm"
 import { RoastingHouse } from "./entities/roasting-house";
+import { CoffeeBeans } from "./entities/coffee-beans";
 
 export class BtdtDataSource {
     private static _dataSourceInstance: DataSource;
@@ -13,7 +14,7 @@ export class BtdtDataSource {
             database: process.env.POSTGRES_DB ?? 'btdt',
             synchronize: true,
             logging: false,
-            entities: [RoastingHouse]
+            entities: [RoastingHouse, CoffeeBeans]
         })
     }
     public async initBtdtDataSource() {
