@@ -13,7 +13,7 @@ export async function load({ params }) {
         .find();
 
     roastingHousesVM = roastingHouses.map<RoastingHouseVM>(x =>
-        new RoastingHouseVM({ name: x.name }));
+        new RoastingHouseVM(x));
 
     return {
         roastingHouses: JSON.parse(JSON.stringify(roastingHousesVM))

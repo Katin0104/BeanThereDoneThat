@@ -65,5 +65,7 @@
 			</button>
 		</div>
 	</div>
-	<slot />
+	<div class="p-3">
+		<slot />
+	</div>
 </div>

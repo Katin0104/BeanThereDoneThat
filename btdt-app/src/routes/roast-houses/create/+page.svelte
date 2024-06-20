@@ -46,8 +46,8 @@
 		</label>
 	</div>
 
-	<div class="mt-6 flex items-center justify-end gap-x-6">
-		<button type="button" class="btn btn-neutral leading-6">Cancel</button>
+	<div class="mt-6 flex items-center justify-between gap-x-6">
+		<a href="/roast-houses" class="btn btn-neutral leading-6 btn-circle">←</a>
 		<button type="submit" class="btn btn-primary">Save</button>
 	</div>
 </form>
