@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+
 	export let data;
-	const hello = () => {
-		console.log('TODO: Zur Edit Seite');
+	const goToRoastingHouse = (id: number, name: string) => {
+		goto('/roasting-houses/' + id, { replaceState: false });
 	};
 </script>
 
-<div class="prose m-3" style="max-width: 100%">
+<div class="prose" style="max-width: 100%">
 	<h2>Deine Röstereien</h2>
 
 	<div class="overflow-x-auto">
@@ -19,7 +21,9 @@
 			<tbody>
 				{#each data.roastingHouses as roastingHouse}
 					<tr class="hover">
-						<td on:click={hello}>{roastingHouse.name}</td>
+						<td on:click={() => goToRoastingHouse(roastingHouse.id, roastingHouse.name)}
+							>{roastingHouse.name}</td
+						>
 						<td style="text-align: right">
 							{#if roastingHouse.shopUrl}
 								<a class="btn btn-sm btn-primary" href={roastingHouse.shopUrl}>🛒</a>
@@ -30,7 +34,7 @@
 			</tbody>
 		</table>
 	</div>
-	<a href="roast-houses/create" class="add-bubble btn btn-primary btn-lg btn-circle">➕</a>
+	<a href="roasting-houses/create" class="add-bubble btn btn-primary btn-lg btn-circle">➕</a>
 </div>
 
 <style>

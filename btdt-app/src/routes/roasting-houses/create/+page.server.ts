@@ -1,4 +1,4 @@
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { RoastingHouse } from '../../../db/entities/roasting-house';
 import { BtdtDataSource } from '../../../db/data-source';
 
@@ -23,6 +23,6 @@ export const actions = {
         const btdtDataSource = new BtdtDataSource();
         await btdtDataSource.dataSourceInstance.getRepository(RoastingHouse).save(roastingHouse);
 
-        return { success: true };
+        redirect(303, '/roasting-houses');
     }
 };

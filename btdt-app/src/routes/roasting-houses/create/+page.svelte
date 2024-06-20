@@ -47,7 +47,7 @@
 	</div>
 
 	<div class="mt-6">
-		<a href="/roast-houses" class="btn btn-neutral btn-lg btn-circle btn-back">←</a>
+		<a href="/roasting-houses" class="btn btn-neutral btn-lg btn-circle btn-back">←</a>
 		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save">💾</button>
 	</div>
 </form>
