@@ -2,10 +2,12 @@
 	export let data;
 </script>
 
-<form method="POST">
+<form method="POST" action="?/save">
 	<div class="prose">
-		<h2>{data.roastingHouse.name}</h2>
-		<p>Hier kannst du deine hinzugefügte Rösterei bearbeiten.</p>
+		<div class="flex items-center gap-3">
+			<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle">←</a>
+			<h2>{data.roastingHouse.name}</h2>
+		</div>
 
 		<label for="first-name" class="form-control text-sm font-medium mt-2">
 			<div class="label">
@@ -87,9 +89,12 @@
 	</div>
 
 	<div class="mt-6">
-		<a href="/roasting-houses" class="btn btn-neutral btn-lg btn-circle btn-back">←</a>
 		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save">💾</button>
 	</div>
+</form>
+
+<form method="post" action="?/delete">
+	<button type="submit" class="btn btn-error btn-lg btn-circle btn-remove">X</button>
 </form>
 
 <style>
@@ -99,7 +104,7 @@
 		bottom: 20px;
 		transition: background-color 0.3s;
 	}
-	.btn-back {
+	.btn-remove {
 		position: fixed;
 		left: 20px;
 		bottom: 20px;

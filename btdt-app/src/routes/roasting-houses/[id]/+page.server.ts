@@ -4,7 +4,7 @@ import { BtdtDataSource } from "../../../db/data-source";
 import { RoastingHouseVM } from "../view-models";
 
 export const actions = {
-    default: async (event) => {
+    save: async (event) => {
         const data = await event.request.formData();
         const name = data.get('name')?.toString();
 
@@ -27,6 +27,15 @@ export const actions = {
         await btdtDataSource.dataSourceInstance.getRepository(RoastingHouse).save(roastingHouse);
 
         redirect(303, '/roasting-houses');
+    },
+
+    delete: async (event) => {
+        const btdtDataSource = new BtdtDataSource();
+        const roastingHouse = await btdtDataSource.dataSourceInstance
+            .getRepository(RoastingHouse)
+            .delete({ id: Number.parseInt(event.params.id) });
+
+        redirect(303, '/roasting-houses')
     }
 };
 
