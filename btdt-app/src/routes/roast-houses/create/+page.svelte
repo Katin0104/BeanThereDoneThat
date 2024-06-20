@@ -46,8 +46,23 @@
 		</label>
 	</div>
 
-	<div class="mt-6 flex items-center justify-between gap-x-6">
-		<a href="/roast-houses" class="btn btn-neutral leading-6 btn-circle">←</a>
-		<button type="submit" class="btn btn-primary">Save</button>
+	<div class="mt-6">
+		<a href="/roast-houses" class="btn btn-neutral btn-lg btn-circle btn-back">←</a>
+		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save">💾</button>
 	</div>
 </form>
+
+<style>
+	.btn-save {
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+		transition: background-color 0.3s;
+	}
+	.btn-back {
+		position: fixed;
+		left: 20px;
+		bottom: 20px;
+		transition: background-color 0.3s;
+	}
+</style>
