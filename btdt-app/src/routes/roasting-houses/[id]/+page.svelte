@@ -3,12 +3,13 @@
 </script>
 
 <form method="POST" action="?/save">
-	<div class="prose">
-		<div class="flex items-center gap-3">
-			<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle">←</a>
+	<div class="flex items-center gap-3">
+		<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle">←</a>
+		<div class="prose">
 			<h2>{data.roastingHouse.name}</h2>
 		</div>
-
+	</div>
+	<div class="prose mt-5">
 		<label for="first-name" class="form-control text-sm font-medium mt-2">
 			<div class="label">
 				<span class="label-text">Name der Rösterei</span>

@@ -1,8 +1,11 @@
 <form method="POST">
-	<div class="prose">
-		<h2>Füge eine neue Rösterei hinzu</h2>
-		<p>Füge möglichst aktuelle Informationen über deine Lieblingsrösterei hinzu.</p>
-
+	<div class="flex justify-start items-start gap-3">
+		<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle">←</a>
+		<div class="prose">
+			<h2>Neue Rösterei hinzufügen</h2>
+		</div>
+	</div>
+	<div class="prose mt-5">
 		<label for="first-name" class="form-control text-sm font-medium mt-2">
 			<div class="label">
 				<span class="label-text">Name der Rösterei</span>
@@ -47,7 +50,6 @@
 	</div>
 
 	<div class="mt-6">
-		<a href="/roasting-houses" class="btn btn-neutral btn-lg btn-circle btn-back">←</a>
 		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save">💾</button>
 	</div>
 </form>
@@ -56,12 +58,6 @@
 	.btn-save {
 		position: fixed;
 		right: 20px;
-		bottom: 20px;
-		transition: background-color 0.3s;
-	}
-	.btn-back {
-		position: fixed;
-		left: 20px;
 		bottom: 20px;
 		transition: background-color 0.3s;
 	}
