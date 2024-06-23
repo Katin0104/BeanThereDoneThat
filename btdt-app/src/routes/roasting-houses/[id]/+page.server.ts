@@ -2,6 +2,7 @@ import { error, fail, redirect } from "@sveltejs/kit";
 import { RoastingHouse } from "../../../db/entities/roasting-house";
 import { BtdtDataSource } from "../../../db/data-source";
 import { RoastingHouseVM } from "../view-models";
+import { CoffeeBeans } from "../../../db/entities/coffee-beans";
 
 export const actions = {
     save: async (event) => {
@@ -49,9 +50,16 @@ export async function load({ params }) {
 
     const roastingHouse = await btdtDataSource.dataSourceInstance
         .getRepository(RoastingHouse)
-        .findOneByOrFail({ id: Number.parseInt(params.id) });
+        .find({
+            where: {
+                id: Number.parseInt(params.id),
+            },
+            relations: ['coffeeBeans'],
+            take: 1
+        });
 
-    const roastingHouseVM = new RoastingHouseVM(roastingHouse);
+    const roastingHouseVM = new RoastingHouseVM(roastingHouse[0]);
+
 
     return {
         roastingHouse: JSON.parse(JSON.stringify(roastingHouseVM))

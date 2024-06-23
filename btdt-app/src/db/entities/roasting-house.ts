@@ -30,7 +30,7 @@ export class RoastingHouse {
     email?: string
 
     @OneToMany(() => CoffeeBeans, coffeeBeans => coffeeBeans.roastingHouse)
-    coffeeBeans: CoffeeBeans[];
+    coffeeBeans!: CoffeeBeans[];
 
     @Column({
         nullable: true,

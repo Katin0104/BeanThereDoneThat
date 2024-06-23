@@ -106,21 +106,35 @@
 	>
 </form>
 
-<div class="prose mt-5">
-	<h3>Bohnen</h3>
+<div class="mt-5">
+	<div class="flex items-center justify-between">
+		<div class="prose">
+			<h3>Bohnen</h3>
+		</div>
+		<a
+			href="{data.roastingHouse.id}/coffee-beans/create"
+			class="btn btn-secondary btn-sm btn-outline btn-circle"><Plus /></a
+		>
+	</div>
 </div>
 
-<div class="card w-96 bg-base-100 shadow-lg mb-5 mt-3">
-	<div class="card-body">
-		<div class="text-center items-center justify-center flex gap-2">
-			<a
-				href="{data.roastingHouse.id}/coffee-beans/create"
-				class="btn btn-neutral btn-sm btn-outline btn-circle"><Plus /></a
-			>
+{#if !data.roastingHouse.coffeeBeans || data.roastingHouse.coffeeBeans.length == 0}
+	<div class="card w-96 bg-base-100 shadow-lg mb-5 mt-3">
+		<div class="card-body">
 			<span><strong>Nix los hier. Lege eine Bohne an!</strong></span>
 		</div>
 	</div>
-</div>
+{:else}
+	{#each data.roastingHouse.coffeeBeans as coffeeBean}
+		<div class="card w-96 bg-neutral my-3 text-white">
+			<div class="card-body">
+				<span>
+					{coffeeBean.name}
+				</span>
+			</div>
+		</div>
+	{/each}
+{/if}
 
 <!-- Open the modal using ID.showModal() method -->
 <dialog bind:this={removeConfirmationDialog} class="modal">
