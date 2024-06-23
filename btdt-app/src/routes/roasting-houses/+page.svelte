@@ -18,7 +18,11 @@
 
 	<div class="overflow-x-auto prose mt-5">
 		{#if data.roastingHouses && data.roastingHouses.length == 0}
-			<p>Nix los hier, lege eine Rösterei an!</p>
+			<div class="card w-96 bg-base-100 shadow-lg mb-5">
+				<div class="card-body text-center">
+					<p><strong>Nix los hier. Lege eine Rösterei an!</strong></p>
+				</div>
+			</div>
 		{:else}
 			<table class="table">
 				<thead>
