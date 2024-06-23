@@ -1,10 +1,13 @@
 <script lang="ts">
+	import { ArrowUturnLeft, XMark, Check } from 'svelte-heros-v2';
 	export let data;
 </script>
 
 <form method="POST" action="?/save">
 	<div class="flex items-center gap-3">
-		<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle">←</a>
+		<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle"
+			><ArrowUturnLeft size="15" /></a
+		>
 		<div class="prose">
 			<h2>{data.roastingHouse.name}</h2>
 		</div>
@@ -90,12 +93,12 @@
 	</div>
 
 	<div class="mt-6">
-		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save">💾</button>
+		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save"><Check /></button>
 	</div>
 </form>
 
 <form method="post" action="?/delete">
-	<button type="submit" class="btn btn-error btn-lg btn-circle btn-remove">X</button>
+	<button type="submit" class="btn btn-error btn-lg btn-circle btn-remove"><XMark /></button>
 </form>
 
 <style>

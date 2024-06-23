@@ -1,6 +1,12 @@
+<script lang="ts">
+	import { ArrowUturnLeft, Check } from 'svelte-heros-v2';
+</script>
+
 <form method="POST">
 	<div class="flex justify-start items-start gap-3">
-		<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle">←</a>
+		<a href="/roasting-houses" class="btn btn-neutral btn-sm btn-outline btn-circle"
+			><ArrowUturnLeft size="15" /></a
+		>
 		<div class="prose">
 			<h2>Neue Rösterei hinzufügen</h2>
 		</div>
@@ -50,7 +56,7 @@
 	</div>
 
 	<div class="mt-6">
-		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save">💾</button>
+		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save"><Check /></button>
 	</div>
 </form>
 
