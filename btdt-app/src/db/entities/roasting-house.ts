@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm"
+import { CoffeeBeans } from "./coffee-beans"
 
 @Entity({ name: 'roasting_house' })
 export class RoastingHouse {
@@ -27,6 +28,9 @@ export class RoastingHouse {
         type: "text"
     })
     email?: string
+
+    @OneToMany(() => CoffeeBeans, coffeeBeans => coffeeBeans.roastingHouse)
+    coffeeBeans: CoffeeBeans[];
 
     @Column({
         nullable: true,

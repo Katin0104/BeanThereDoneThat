@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne, type Relation } from "typeorm"
-import type { RoastingHouse } from "./roasting-house"
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne, type Relation, OneToMany, ManyToOne } from "typeorm"
+import { RoastingHouse } from "./roasting-house"
 
 export enum RoastType {
     LIGHT_ROAST = "LIGHT_ROAST",
@@ -11,6 +11,16 @@ export enum RoastType {
     ESPRESSO_ROAST = "ESPRESSO_ROAST"
 }
 
+export const parseRoastType = (input: string): RoastType => {
+    const formattedInput = input.trim().toLowerCase();
+    for (const key in RoastType) {
+        if (RoastType[key as keyof typeof RoastType].toLowerCase() === formattedInput) {
+            return RoastType[key as keyof typeof RoastType];
+        }
+    }
+    console.warn(`Could not parse RoastType: "${input}". Fallback to "LIGHT_ROAST"`);
+    return RoastType.LIGHT_ROAST; // oder wirf einen Fehler, wenn keine passende Kategorie gefunden wird
+}
 
 @Entity({ name: 'coffee_beans' })
 export class CoffeeBeans {
@@ -57,7 +67,7 @@ export class CoffeeBeans {
         nullable: true,
         type: "bool"
     })
-    coffein?: boolean
+    caffeine?: boolean
 
     @Column({
         nullable: true,
@@ -68,7 +78,7 @@ export class CoffeeBeans {
     @Column({ type: "int" })
     roastingHouseId!: number;
 
-    @OneToOne("RoastingHouse") @JoinColumn()
+    @ManyToOne(() => RoastingHouse, roastingHouse => roastingHouse.coffeeBeans) @JoinColumn()
     roastingHouse!: Relation<RoastingHouse>;
 
     @Column({
@@ -90,7 +100,7 @@ export class CoffeeBeans {
         origins?: string[],
         variety?: string,
         price?: string,
-        coffein?: boolean,
+        caffeine?: boolean,
         acidity?: string,
         roastingHouse: RoastingHouse,
         processingMethod?: string,
@@ -103,7 +113,7 @@ export class CoffeeBeans {
             this.origins = values.origins;
             this.variety = values.variety;
             this.price = values.price;
-            this.coffein = values.coffein;
+            this.caffeine = values.caffeine;
             this.acidity = values.acidity;
             this.roastingHouse = values.roastingHouse;
             this.processingMethod = values.processingMethod;

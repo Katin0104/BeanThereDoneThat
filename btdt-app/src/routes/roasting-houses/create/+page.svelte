@@ -12,7 +12,7 @@
 		</div>
 	</div>
 	<div class="prose mt-5">
-		<label for="first-name" class="form-control text-sm font-medium mt-2">
+		<label for="name" class="form-control text-sm font-medium mt-2">
 			<div class="label">
 				<span class="label-text">Name der Rösterei</span>
 			</div>

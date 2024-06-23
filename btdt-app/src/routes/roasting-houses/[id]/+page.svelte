@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowUturnLeft, XMark, Check } from 'svelte-heros-v2';
+	import { ArrowUturnLeft, Plus, Check } from 'svelte-heros-v2';
 	export let data;
 
 	let removeConfirmationDialog: any;
@@ -15,7 +15,8 @@
 		</div>
 	</div>
 	<div class="prose mt-5">
-		<label for="first-name" class="form-control text-sm font-medium mt-2">
+		<h3>Angaben zur Rösterei</h3>
+		<label for="name" class="form-control text-sm font-medium mt-2">
 			<div class="label">
 				<span class="label-text">Name der Rösterei</span>
 			</div>
@@ -97,13 +98,29 @@
 	<div class="mt-6">
 		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save"><Check /></button>
 	</div>
+
+	<button
+		on:click={removeConfirmationDialog.showModal()}
+		type="button"
+		class="btn btn-outline btn-error btn-xs">Rösterei Löschen</button
+	>
 </form>
 
-<button
-	on:click={removeConfirmationDialog.showModal()}
-	type="button"
-	class="btn btn-error btn-lg btn-circle btn-remove"><XMark /></button
->
+<div class="prose mt-5">
+	<h3>Bohnen</h3>
+</div>
+
+<div class="card w-96 bg-base-100 shadow-lg mb-5 mt-3">
+	<div class="card-body">
+		<div class="text-center items-center justify-center flex gap-2">
+			<a
+				href="{data.roastingHouse.id}/coffee-beans/create"
+				class="btn btn-neutral btn-sm btn-outline btn-circle"><Plus /></a
+			>
+			<span><strong>Nix los hier. Lege eine Bohne an!</strong></span>
+		</div>
+	</div>
+</div>
 
 <!-- Open the modal using ID.showModal() method -->
 <dialog bind:this={removeConfirmationDialog} class="modal">
@@ -124,12 +141,14 @@
 <style>
 	.btn-save {
 		position: fixed;
+		z-index: 99999;
 		right: 20px;
 		bottom: 20px;
 		transition: background-color 0.3s;
 	}
 	.btn-remove {
 		position: fixed;
+		z-index: 99999;
 		left: 20px;
 		bottom: 20px;
 		transition: background-color 0.3s;
