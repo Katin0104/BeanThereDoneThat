@@ -128,9 +128,7 @@
 	{#each data.roastingHouse.coffeeBeans as coffeeBean}
 		<div class="card w-96 bg-neutral my-3 text-white">
 			<div class="card-body">
-				<span>
-					{coffeeBean.name}
-				</span>
+				<a href="{data.roastingHouse.id}/coffee-beans/{coffeeBean.id}">{coffeeBean.name}</a>
 			</div>
 		</div>
 	{/each}
