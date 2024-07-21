@@ -2,14 +2,22 @@ import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne, type Rela
 import { RoastingHouse } from "./roasting-house"
 
 export enum RoastType {
-    LIGHT_ROAST = "LIGHT_ROAST",
-    MEDIUM_ROAST = "MEDIUM_ROAST",
-    MEDIUM_DARK_ROAST = "MEDIUM_DARK_ROAST",
-    DARK_ROAST = "DARK_ROAST",
-    BLONDE_ROAST = "BLONDE_ROAST",
-    ITALIAN_ROAST = "ITALIAN_ROAST",
-    ESPRESSO_ROAST = "ESPRESSO_ROAST"
+    DRUM_ROASTING = "DRUM_ROASTING",
+    FLUID_BED_ROASTING = "FLUID_BED_ROASTING",
+    INFRARED_ROASTING = "INFRARED_ROASTING",
+    CONVECTION_ROASTING = "CONVECTION_ROASTING"
 }
+
+export enum RoastLevel {
+    BLONDE_ROAST = 0,
+    LIGHT_ROAST = 1,
+    MEDIUM_ROAST = 2,
+    MEDIUM_DARK_ROAST = 3,
+    DARK_ROAST = 4,
+    ITALIAN_ROAST = 5,
+    ESPRESSO_ROAST = 6
+}
+
 
 export const parseRoastType = (input: string): RoastType => {
     const formattedInput = input.trim().toLowerCase();
@@ -18,8 +26,8 @@ export const parseRoastType = (input: string): RoastType => {
             return RoastType[key as keyof typeof RoastType];
         }
     }
-    console.warn(`Could not parse RoastType: "${input}". Fallback to "LIGHT_ROAST"`);
-    return RoastType.LIGHT_ROAST; // oder wirf einen Fehler, wenn keine passende Kategorie gefunden wird
+    console.warn(`Could not parse RoastType: "${input}". Fallback to "DRUM_ROASTING"`);
+    return RoastType.DRUM_ROASTING; // oder wirf einen Fehler, wenn keine passende Kategorie gefunden wird
 }
 
 @Entity({ name: 'coffee_beans' })
@@ -36,7 +44,7 @@ export class CoffeeBeans {
         nullable: true,
         type: "decimal"
     })
-    roastLevel?: number
+    roastLevel?: RoastLevel
 
 
     @Column({

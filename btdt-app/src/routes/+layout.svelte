@@ -5,6 +5,11 @@
 
 	register('de', () => import('../locales/de.json'));
 
+	init({
+		fallbackLocale: 'de',
+		initialLocale: 'de'
+	});
+
 	onMount(() => {
 		init({
 			fallbackLocale: 'de',

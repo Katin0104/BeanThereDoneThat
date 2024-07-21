@@ -1,9 +1,13 @@
 {
-    "LIGHT_ROAST": "Leichte Röstung",
-    "MEDIUM_ROAST": "Mittlere Röstung",
-    "MEDIUM_DARK_ROAST": "Mittlere dunkle Röstung",
-    "DARK_ROAST": "Dunkle Röstung",
-    "BLONDE_ROAST": "Helle Röstung",
-    "ITALIAN_ROAST": "Italienische Röstung",
-    "ESPRESSO_ROAST": "Espresso Röstung"
+    "ROAST_LEVEL_0": "Helle Röstung",
+    "ROAST_LEVEL_1": "Leichte Röstung",
+    "ROAST_LEVEL_2": "Mittlere Röstung",
+    "ROAST_LEVEL_3": "Mittlere dunkle Röstung",
+    "ROAST_LEVEL_4": "Dunkle Röstung",
+    "ROAST_LEVEL_5": "Italienische Röstung",
+    "ROAST_LEVEL_6": "Espresso Röstung",
+    "DRUM_ROASTING": "Trommelröstung",
+    "FLUID_BED_ROASTING": "Heißluftröstung",
+    "INFRARED_ROASTING": "Infrarotröstung",
+    "CONVECTION_ROASTING": "Konvektion-Röstung"
 }

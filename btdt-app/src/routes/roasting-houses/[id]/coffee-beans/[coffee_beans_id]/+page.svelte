@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { ArrowUturnLeft, Plus, Check } from 'svelte-heros-v2';
 	import { t } from 'svelte-i18n';
-	import { RoastType } from '../../../../../db/entities/coffee-beans';
+	import { RoastType, RoastLevel } from '../../../../../db/entities/coffee-beans';
 	export let data;
 	let removeConfirmationDialog: any;
+
+	const roastLevelEnumValues = Object.values(RoastLevel);
+	const roastLevelNumberValues = roastLevelEnumValues.filter((value) => typeof value === 'number');
 </script>
 
 <form method="POST">
@@ -36,7 +39,16 @@
 			<div class="label">
 				<span class="label-text">Röstgrad</span>
 			</div>
-			<input id="roastLevel" name="roastLevel" type="text" class="input input-bordered w-full" />
+			<select
+				id="roastLevel"
+				name="roastLevel"
+				class="input input-bordered w-full"
+				bind:value={data.coffeeBeans.roastLevel}
+			>
+				{#each roastLevelNumberValues as roastLevel}
+					<option value="${roastLevel}">{$t('ROAST_LEVEL_' + roastLevel)}</option>
+				{/each}
+			</select>
 		</label>
 
 		<label for="roastType" class="form-control block text-sm font-medium mt-2">
@@ -52,8 +64,8 @@
 				{#each Object.keys(RoastType) as roastType}
 					<option value="${roastType}">{$t(roastType)}</option>
 				{/each}
-			</select></label
-		>
+			</select>
+		</label>
 
 		<label for="origins" class="form-control block text-sm font-medium mt-2">
 			<div class="label">
