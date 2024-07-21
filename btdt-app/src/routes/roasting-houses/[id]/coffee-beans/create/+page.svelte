@@ -39,7 +39,7 @@
 			</div>
 			<select id="roastLevel" name="roastLevel" class="input input-bordered w-full">
 				{#each roastLevelNumberValues as roastLevel}
-					<option value="${roastLevel}">{$t('ROAST_LEVEL_' + roastLevel)}</option>
+					<option value={roastLevel}>{$t('ROAST_LEVEL_' + roastLevel)}</option>
 				{/each}
 			</select>
 		</label>
@@ -50,7 +50,7 @@
 			</div>
 			<select id="roastType" name="roastType" class="input input-bordered w-full">
 				{#each Object.keys(RoastType) as roastType}
-					<option value="${roastType}">{$t(roastType)}</option>
+					<option value={roastType}>{$t(roastType)}</option>
 				{/each}
 			</select>
 		</label>

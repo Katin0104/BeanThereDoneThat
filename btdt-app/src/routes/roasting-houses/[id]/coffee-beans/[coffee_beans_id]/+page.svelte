@@ -46,7 +46,7 @@
 				bind:value={data.coffeeBeans.roastLevel}
 			>
 				{#each roastLevelNumberValues as roastLevel}
-					<option value="${roastLevel}">{$t('ROAST_LEVEL_' + roastLevel)}</option>
+					<option value={roastLevel}>{$t('ROAST_LEVEL_' + roastLevel)}</option>
 				{/each}
 			</select>
 		</label>
@@ -62,7 +62,7 @@
 				bind:value={data.coffeeBeans.roastType}
 			>
 				{#each Object.keys(RoastType) as roastType}
-					<option value="${roastType}">{$t(roastType)}</option>
+					<option value={roastType}>{$t(roastType)}</option>
 				{/each}
 			</select>
 		</label>
