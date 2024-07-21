@@ -14,5 +14,8 @@ export default defineConfig({
 	},
 	ssr: {
 		external: ['reflect-metadata'],
-	}
+	},
+	optimizeDeps: {
+		include: ['svelte-i18n'],
+	},
 });

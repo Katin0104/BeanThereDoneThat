@@ -1,5 +1,16 @@
-<script>
+<script lang="ts">
 	import 'tailwindcss/tailwind.css';
+	import { register, init, getLocaleFromNavigator } from 'svelte-i18n';
+	import { onMount } from 'svelte';
+
+	register('de', () => import('../locales/de.json'));
+
+	onMount(() => {
+		init({
+			fallbackLocale: 'de',
+			initialLocale: getLocaleFromNavigator()
+		});
+	});
 </script>
 
 <div class="container mx-auto">

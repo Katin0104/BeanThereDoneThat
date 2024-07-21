@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { ArrowUturnLeft, Plus } from 'svelte-heros-v2';
+	import { t } from 'svelte-i18n';
+	import { RoastType } from '../../../../../db/entities/coffee-beans';
 	export let data;
 </script>
 
@@ -39,13 +41,12 @@
 			<div class="label">
 				<span class="label-text">Röstung</span>
 			</div>
-			<input
-				id="roastType"
-				name="roastType"
-				type="text"
-				class="input input-bordered w-full"
-			/></label
-		>
+			<select id="roastType" name="roastType" class="input input-bordered w-full">
+				{#each Object.keys(RoastType) as roastType}
+					<option value="${roastType}">{$t(roastType)}</option>
+				{/each}
+			</select>
+		</label>
 
 		<label for="origins" class="form-control block text-sm font-medium mt-2">
 			<div class="label">
