@@ -1,20 +1,22 @@
 import { DataSource } from "typeorm"
 import { RoastingHouse } from "./entities/roasting-house";
 import { CoffeeBeans } from "./entities/coffee-beans";
-import { POSTGRES_HOST, POSTGRES_PORT, POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB, POSTGRES_USE_SSL } from "$env/static/private";
+import 'dotenv/config'
+import { configDotenv } from "dotenv";
 
 export class BtdtDataSource {
     private static _dataSourceInstance: DataSource;
     public get dataSourceInstance() {
-        // console.log(process.env);
+        configDotenv();
+
         const dbConfig = {
             type: "postgres",
-            host: POSTGRES_HOST ?? 'localhost',
-            port: Number.parseInt(POSTGRES_PORT ?? '5434'),
-            username: POSTGRES_USER ?? 'user',
-            password: POSTGRES_PASSWORD ?? 'password',
-            database: POSTGRES_DB ?? 'btdt',
-            ssl: POSTGRES_USE_SSL === 'true'
+            host: process.env.POSTGRES_HOST ?? 'localhost',
+            port: Number.parseInt(process.env.POSTGRES_PORT ?? '5434'),
+            username: process.env.POSTGRES_USER ?? 'user',
+            password: process.env.POSTGRES_PASSWORD ?? 'password',
+            database: process.env.POSTGRES_DB ?? 'btdt',
+            ssl: process.env.POSTGRES_USE_SSL === 'true'
         }
         console.log(dbConfig)
         BtdtDataSource._dataSourceInstance = BtdtDataSource._dataSourceInstance ? BtdtDataSource._dataSourceInstance : new DataSource({
