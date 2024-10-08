@@ -168,6 +168,12 @@
 			type="number"
 			bind:value={data.coffeeBeans.id}
 		/>
+
+		<button
+			on:click={removeConfirmationDialog.showModal()}
+			type="button"
+			class="btn btn-outline btn-error btn-xs">Kaffeebohne Löschen</button
+		>
 	</div>
 
 	<div class="mt-6">
@@ -180,6 +186,22 @@
 	<div class="modal-box">
 		<h3 class="text-lg font-bold">Rösterei {data.coffeeBeans.name} löschen</h3>
 		<p class="py-4">Möchtest Du wirklich die Rösterei löschen?</p>
+		<div class="modal-action">
+			<form method="post" action="?/delete" class="flex justify-between w-full">
+				<!-- if there is a button in form, it will close the modal -->
+				<button type="button" class="btn" on:click={removeConfirmationDialog.close()}>Cancel</button
+				>
+				<button type="submit" class="btn btn-error">Delete</button>
+			</form>
+		</div>
+	</div>
+</dialog>
+
+<!-- Open the modal using ID.showModal() method -->
+<dialog bind:this={removeConfirmationDialog} class="modal">
+	<div class="modal-box">
+		<h3 class="text-lg font-bold">Kaffeebohne {data.coffeeBeans.name} löschen</h3>
+		<p class="py-4">Möchtest Du wirklich diese Kaffeebohne löschen?</p>
 		<div class="modal-action">
 			<form method="post" action="?/delete" class="flex justify-between w-full">
 				<!-- if there is a button in form, it will close the modal -->

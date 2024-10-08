@@ -39,14 +39,14 @@ export const actions = {
         redirect(303, `/roasting-houses/${event.params.id}`);
     },
 
-    /*delete: async (event) => {
+    delete: async (event) => {
         const btdtDataSource = new BtdtDataSource();
-        const roastingHouse = await btdtDataSource.dataSourceInstance
-            .getRepository(RoastingHouse)
-            .delete({ id: Number.parseInt(event.params.id) });
+        let coffeeBeans = await btdtDataSource.dataSourceInstance
+            .getRepository(CoffeeBeans)
+            .delete({ id: Number.parseInt(event.params.coffee_beans_id) });
 
-        redirect(303, '/roasting-houses')
-    }*/
+        redirect(303, `/roasting-houses/${event.params.id}`)
+    }
 };
 
 export async function load({ params }) {
