@@ -15,9 +15,13 @@ export const actions = {
         }
 
         const btdtDataSource = new BtdtDataSource();
-        const coffeeBeans = await btdtDataSource.dataSourceInstance
+        let coffeeBeans = await btdtDataSource.dataSourceInstance
             .getRepository(CoffeeBeans)
-            .findOneByOrFail({ id: Number.parseInt(event.params.id) });
+            .findOneBy({ id: Number.parseInt(event.params.coffee_beans_id) });
+
+        if (!coffeeBeans) {
+            return fail(404);
+        }
 
         coffeeBeans.name = name;
         coffeeBeans.roastLevel = parseInt(data.get('roastLevel')?.toString() ?? '');
@@ -30,9 +34,9 @@ export const actions = {
         coffeeBeans.tastingNote = data.get('tastingNote')?.toString();
         coffeeBeans.caffeine = data.get('caffeine')?.toString() == 'true';
 
-        await btdtDataSource.dataSourceInstance.getRepository(CoffeeBeans).save(coffeeBeans);
+        coffeeBeans = await btdtDataSource.dataSourceInstance.getRepository(CoffeeBeans).save(coffeeBeans);
 
-        //redirect(303, `/roasting-houses/${event.params.id}/coffee-beans`);
+        redirect(303, `/roasting-houses/${event.params.id}`);
     },
 
     /*delete: async (event) => {

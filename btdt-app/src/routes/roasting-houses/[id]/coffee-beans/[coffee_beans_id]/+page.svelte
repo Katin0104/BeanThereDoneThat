@@ -9,7 +9,7 @@
 	const roastLevelNumberValues = roastLevelEnumValues.filter((value) => typeof value === 'number');
 </script>
 
-<form method="POST">
+<form method="POST" action="?/save">
 	<div class="flex justify-start items-start gap-3">
 		<a
 			href="/roasting-houses/{data.roastingHouse.id}"
@@ -171,7 +171,7 @@
 	</div>
 
 	<div class="mt-6">
-		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save"><Plus /></button>
+		<button type="submit" class="btn btn-primary btn-lg btn-circle btn-save"><Check /></button>
 	</div>
 </form>
 
