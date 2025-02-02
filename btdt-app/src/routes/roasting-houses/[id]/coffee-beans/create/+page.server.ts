@@ -2,7 +2,7 @@ import { fail, redirect } from "@sveltejs/kit";
 import { BtdtDataSource } from "../../../../../db/data-source";
 import { RoastingHouse } from "../../../../../db/entities/roasting-house";
 import { RoastingHouseVM } from "../../../view-models";
-import { CoffeeBeans, parseRoastType } from "../../../../../db/entities/coffee-beans";
+import { CoffeeBeans, parseRoastType, RoastLevel } from "../../../../../db/entities/coffee-beans";
 
 export async function load({ params }) {
     const btdtDataSource = new BtdtDataSource();
@@ -44,7 +44,7 @@ export const actions = {
 
         const coffeeBeans = new CoffeeBeans({
             name: name,
-            roastLevel: parseInt(data.get('roastLevel')?.toString() ?? '1'),
+            roastLevel: RoastLevel[(data.get('roastLevel')?.toString() ?? RoastLevel.DARK_ROAST) as keyof typeof RoastLevel],
             roastType: parseRoastType(data.get('roastType')?.toString() ?? ''),
             // TODO: origins: data.get('origins')?.toString(),
             variety: data.get('variety')?.toString(),

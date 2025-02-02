@@ -9,13 +9,17 @@ export enum RoastType {
 }
 
 export enum RoastLevel {
-    BLONDE_ROAST = 0,
-    LIGHT_ROAST = 1,
-    MEDIUM_ROAST = 2,
-    MEDIUM_DARK_ROAST = 3,
-    DARK_ROAST = 4,
-    ITALIAN_ROAST = 5,
-    ESPRESSO_ROAST = 6
+    BLONDE_ROAST = 'BLONDE_ROAST',
+    LIGHT_ROAST = 'LIGHT_ROAST',
+    MEDIUM_ROAST = 'MEDIUM_ROAST',
+    MEDIUM_DARK_ROAST = 'MEDIUM_DARK_ROAST',
+    DARK_ROAST = 'DARK_ROAST',
+    ITALIAN_ROAST = 'ITALIAN_ROAST',
+    ESPRESSO_ROAST = 'ESPRESSO_ROAST',
+    DRUM_ROASTING = 'DRUM_ROASTING',
+    FLUID_BED_ROASTING = 'FLUID_BED_ROASTING',
+    INFRARED_ROASTING = 'INFRARED_ROASTING',
+    CONVECTION_ROASTING = 'CONVECTION_ROASTING'
 }
 
 
@@ -42,7 +46,7 @@ export class CoffeeBeans {
 
     @Column({
         nullable: true,
-        type: "decimal"
+        type: "text"
     })
     roastLevel?: RoastLevel
 
@@ -103,7 +107,7 @@ export class CoffeeBeans {
 
     constructor(values: {
         name: string,
-        roastLevel?: number,
+        roastLevel?: RoastLevel,
         roastType?: RoastType,
         origins?: string[],
         variety?: string,

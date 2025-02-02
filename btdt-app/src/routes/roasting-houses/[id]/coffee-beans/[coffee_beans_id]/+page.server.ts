@@ -1,6 +1,6 @@
 import { error, fail, redirect } from "@sveltejs/kit";
 import { BtdtDataSource } from "../../../../../db/data-source";
-import { CoffeeBeans, RoastType } from "../../../../../db/entities/coffee-beans";
+import { CoffeeBeans, RoastLevel, RoastType } from "../../../../../db/entities/coffee-beans";
 import { CoffeeBeansVM, RoastingHouseVM } from "../../../view-models";
 import { RoastingHouse } from "../../../../../db/entities/roasting-house";
 
@@ -24,7 +24,7 @@ export const actions = {
         }
 
         coffeeBeans.name = name;
-        coffeeBeans.roastLevel = parseInt(data.get('roastLevel')?.toString() ?? '');
+        coffeeBeans.roastLevel = RoastLevel[(data.get('roastLevel')?.toString() ?? RoastLevel.DARK_ROAST) as keyof typeof RoastLevel];
         coffeeBeans.roastType = RoastType[data.get('roastType')?.toString() as keyof typeof RoastType];
         coffeeBeans.origins = data.getAll('origins') as string[] ?? [];
         coffeeBeans.variety = data.get('variety')?.toString();

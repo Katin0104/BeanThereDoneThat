@@ -4,8 +4,7 @@
 	import { RoastType, RoastLevel } from '../../../../../db/entities/coffee-beans';
 	export let data;
 
-	const roastLevelEnumValues = Object.values(RoastLevel);
-	const roastLevelNumberValues = roastLevelEnumValues.filter((value) => typeof value === 'number');
+	const roastLevels = Object.keys(RoastLevel) as Array<keyof typeof RoastLevel>;
 </script>
 
 <form method="POST">
@@ -38,8 +37,8 @@
 				<span class="label-text">Röstgrad</span>
 			</div>
 			<select id="roastLevel" name="roastLevel" class="input input-bordered w-full">
-				{#each roastLevelNumberValues as roastLevel}
-					<option value={roastLevel}>{$t('ROAST_LEVEL_' + roastLevel)}</option>
+				{#each roastLevels as roastLevel}
+					<option value={roastLevel}>{$t(roastLevel)}</option>
 				{/each}
 			</select>
 		</label>

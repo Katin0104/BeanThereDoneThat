@@ -5,8 +5,7 @@
 	export let data;
 	let removeConfirmationDialog: any;
 
-	const roastLevelEnumValues = Object.values(RoastLevel);
-	const roastLevelNumberValues = roastLevelEnumValues.filter((value) => typeof value === 'number');
+	const roastLevels = Object.keys(RoastLevel) as Array<keyof typeof RoastLevel>;
 </script>
 
 <form method="POST" action="?/save">
@@ -45,8 +44,8 @@
 				class="input input-bordered w-full"
 				bind:value={data.coffeeBeans.roastLevel}
 			>
-				{#each roastLevelNumberValues as roastLevel}
-					<option value={roastLevel}>{$t('ROAST_LEVEL_' + roastLevel)}</option>
+				{#each roastLevels as roastLevel}
+					<option value={roastLevel}>{$t(roastLevel)}</option>
 				{/each}
 			</select>
 		</label>
