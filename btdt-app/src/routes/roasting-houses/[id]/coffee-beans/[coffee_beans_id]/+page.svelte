@@ -96,13 +96,27 @@
 			<div class="label">
 				<span class="label-text">Preis per Kilo</span>
 			</div>
-			<input
-				id="price"
-				name="price"
-				type="text"
-				class="input input-bordered w-full"
-				bind:value={data.coffeeBeans.price}
-			/>
+			<div class="flex space-x-2">
+				<input
+					id="price"
+					name="price"
+					type="number"
+					step="0.01"
+					class="input input-bordered w-full"
+					bind:value={data.coffeeBeans.price}
+				/>
+				<select
+					id="currency"
+					name="currency"
+					class="select select-bordered w-full"
+					bind:value={data.coffeeBeans.currency}
+				>
+					<option value="EUR">EUR</option>
+					<option value="USD">USD</option>
+					<option value="GBP">GBP</option>
+					<!-- Weitere Währungen hinzufügen -->
+				</select>
+			</div>
 		</label>
 
 		<label for="caffeine" class="form-control font-medium w-full mt-2">

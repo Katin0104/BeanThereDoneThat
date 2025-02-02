@@ -1,4 +1,4 @@
-import type { CoffeeBeans, RoastType } from "../../db/entities/coffee-beans";
+import type { CoffeeBeans, RoastLevel, RoastType } from "../../db/entities/coffee-beans";
 import type { RoastingHouse } from "../../db/entities/roasting-house";
 
 export class RoastingHouseVM {
@@ -31,11 +31,12 @@ export class RoastingHouseVM {
 export class CoffeeBeansVM {
     public id!: number;
     public name!: string;
-    public roastLevel?: number;
+    public roastLevel?: RoastLevel;
     public roastType?: RoastType;
     public origins?: string[];
     public variety?: string;
-    public price?: string;
+    public price?: number;
+    public currency?: string;
     public caffeine?: boolean;
     public acidity?: string;
     public processingMethod?: string;
@@ -48,6 +49,7 @@ export class CoffeeBeansVM {
         this.origins = values.origins;
         this.variety = values.variety;
         this.price = values.price;
+        this.currency = values.currency;
         this.caffeine = values.caffeine;
         this.acidity = values.acidity;
         this.processingMethod = values.processingMethod;

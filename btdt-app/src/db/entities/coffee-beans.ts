@@ -71,9 +71,17 @@ export class CoffeeBeans {
 
     @Column({
         nullable: true,
-        type: "text"
+        type: "decimal",
+        precision: 10,
+        scale: 2
     })
-    price?: string
+    price?: number
+
+    @Column({
+        nullable: true,
+        type: "text",
+    })
+    currency?: string
 
     @Column({
         nullable: true,
@@ -111,7 +119,8 @@ export class CoffeeBeans {
         roastType?: RoastType,
         origins?: string[],
         variety?: string,
-        price?: string,
+        price?: number,
+        currency?: string,
         caffeine?: boolean,
         acidity?: string,
         roastingHouse: RoastingHouse,
@@ -125,6 +134,7 @@ export class CoffeeBeans {
             this.origins = values.origins;
             this.variety = values.variety;
             this.price = values.price;
+            this.currency = values.currency;
             this.caffeine = values.caffeine;
             this.acidity = values.acidity;
             this.roastingHouse = values.roastingHouse;
